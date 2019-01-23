@@ -490,11 +490,40 @@
     /*
         3.7 Notes
     */
+
+    .Admonition {
+      padding: 1em 1.2em 1.2em 1.2em;
+      margin: 1em 0 1em 0; 
+      background-color: #fcad88;
+      border-top: 10px solid #eb5a06;
+      color:#290404;
+      }
+
+    .Admonition.Important {
+      background-color: #f58cff;
+      color: #5d1364;
+      border-top: 10px solid #9503a8;
+    }
+
+    .Admonition.Warning {
+      background-color: #ff989d;
+      color: #270204;
+      border-top: 10px solid #e4010c;
+    }
+
+
+      .Admonition p {
+        margin: 0;
+    }
+
+
     .Note {
       background-color: #fff8bb;
       color: #7d760b;
       padding: 1.2em;
       margin: 1em 0 1em 0; }
+
+
       .Note p {
         margin: 0; }
     
@@ -503,6 +532,7 @@
     */
     .example {
       background-color: #e1eef1;
+      color:#424242;
       padding: 1.2em;
       margin: 2em 0 1em 0; }
     
@@ -511,7 +541,35 @@
       text-transform: uppercase;
       text-align: center;
       margin-top: 0; }
+
+    .example .Sourcecode {
+      background: none;
+    }
     
+    .recommend, .recommend .example_label {
+      background-color: #f8ffbd;
+    }
+
+    .recommend .example_label {
+      font-weight: bold;
+    }
+
+    .permission, .permission .example_label {
+      background-color: #cdfdbe;
+    }
+
+    .permission .example_label {
+      font-weight: bold;
+    }
+    
+    .require, .require .example_label {
+      background-color: #d3e6ff;
+    }
+
+    .require .example_label {
+      font-weight: bold;
+    }
+
     /*
         3.9 Tables
     */
@@ -1492,6 +1550,17 @@ API definition language used.</p></div>
   <p id="_0672871a-f98b-4718-adb5-f0bd22636906">CAUTION&#x2014;<a href="https://github.com/opengeospatial/WFS_FES/issues/98">ISSUE 98</a><br />
 Server Ambiguity in OpenAPI</p>
 </div>
+
+<div class="Admonition Important">
+  <p id="_0672871a-f98b-4718-adb5-f0bd22636906">IMPORTANT&#x2014;<a href="https://github.com/opengeospatial/WFS_FES/issues/98">ISSUE 98</a><br />
+Server Ambiguity in OpenAPI</p>
+</div>
+
+<div class="Admonition Warning">
+  <p id="_0672871a-f98b-4718-adb5-f0bd22636906">WARNING&#x2014;<a href="https://github.com/opengeospatial/WFS_FES/issues/98">ISSUE 98</a><br />
+Server Ambiguity in OpenAPI</p>
+</div>
+
 <p class="FigureTitle" align="center">URL of the OpenAPI definition</p><table id="_96fc2a8a-a9ef-4a51-ab5a-950412bbccbc" class="example" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:82.8pt;padding:0 0 0 1em;margin-left:0pt">EXAMPLE</td><td valign="top" class="example"><p id="_348601e8-3a18-4281-9418-b8373247ccb8" class="example">If the OpenAPI Server Object looks like this:</p>
 <p id="_0838d224-76e1-4418-9578-41504f73c4b5" class="Sourcecode">servers:<br />&#xA0; - url: https://dev.example.org/<br />&#xA0;&#xA0;&#xA0; description: Development server<br />&#xA0; - url: https://data.example.org/<br />&#xA0;&#xA0;&#xA0; description: Production server</p>
 <p id="_b83f3a52-9acb-4e01-85cc-b4b9e7553d6d" class="example">The path &#x201C;/mypath&#x201D; in the OpenAPI definition of a WFS would be the
@@ -1761,9 +1830,9 @@ this standard to access the data via the API.</p></div>
         <div id="_declaration_of_conformance_classes"><h2>8.4. Declaration of conformance classes</h2><div id="_operation_3"><h3>8.4.1. Operation</h3><p id="_72e0980a-0d7f-4fd7-8f70-af609f220350">To support &#x201C;generic&#x201D; clients for accessing Web Feature Services in general - and
 not &#x201C;just&#x201D; a specific API / server, the server has to declare the
 requirements classes it implements and conforms to.</p>
-<table id="_d76b72c2-2c6c-4814-a096-7fed1a20409b" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 5</td><td valign="top" class="recommend"><p><b>/req/core/conformance-op</b></p>
+<table id="_d76b72c2-2c6c-4814-a096-7fed1a20409b" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 5</td><td valign="top" class="require"><p><b>/req/core/conformance-op</b></p>
 <p id="_f8a7484f-238e-4e88-aaa5-06d0ae4292c1">The server SHALL support the HTTP GET operation at the path <tt>/conformance</tt>.</p></td></tr></table></div>
-<div id="_response_3"><h3>8.4.2. Response</h3><table id="_b404210e-2581-4779-803e-9982469c923a" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 6</td><td valign="top" class="recommend"><p><b>/req/core/conformance-success</b></p>
+<div id="_response_3"><h3>8.4.2. Response</h3><table id="_b404210e-2581-4779-803e-9982469c923a" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 6</td><td valign="top" class="require"><p><b>/req/core/conformance-success</b></p>
 <p id="_2154c4c7-340d-48f6-9c46-0d95172ed0a6">A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <tt>200</tt>.</p>
 <p id="_3fc91e3b-d141-4e93-a89d-aca626a76f25">The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/req-classes.yaml">req-classes.yaml</a> and
@@ -1776,7 +1845,7 @@ the API definition and HTML and GeoJSON as encodings for features.</p>
 
   <p id="_19ca3368-05f2-4de3-a7aa-8ec26687a956">See <a href="#http_status_codes">Clause 8.5.1</a> for general guidance.</p>
 </div></div>
-        <div id="_http_1_1"><h2>8.5. HTTP 1.1</h2><table id="_5ddff383-c208-4e2d-9389-4eee1294c491" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 7</td><td valign="top" class="recommend"><p><b>/req/core/http</b></p>
+        <div id="_http_1_1"><h2>8.5. HTTP 1.1</h2><table id="_5ddff383-c208-4e2d-9389-4eee1294c491" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 7</td><td valign="top" class="require"><p><b>/req/core/http</b></p>
 <p id="_13f412dc-764c-45b6-9e4d-198c96810e75">The server SHALL conform to <a href="#rfc2616">HTTP 1.1</a>.</p>
 <p id="_99980ed9-5060-421f-88b5-fb09980bf7a4">If the server supports HTTPS, the server SHALL also conform to
 <a href="#rfc2818">HTTP over TLS</a>.</p></td></tr></table>
@@ -1812,7 +1881,7 @@ outside of the server.</p>
         <tt>500</tt>
       </td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">An internal error occurred in the server.</td></tr></tbody></table>
 <p id="_97ece760-520e-4575-a301-cecda6f22e36">More specific guidance is provided for each resource, where applicable.</p>
-<table id="_b9bc83cb-20fe-41ad-8bbf-cd4f039fcf76" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 1</td><td valign="top" class="recommend"><p><b>/per/core/additional-status-codes</b></p>
+<table id="_b9bc83cb-20fe-41ad-8bbf-cd4f039fcf76" class="permission" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 1</td><td valign="top" class="permission"><p><b>/per/core/additional-status-codes</b></p>
 <p id="_c6a33fe9-2e02-4118-853a-cc6f03b1876b">Servers MAY support other capabilities of the HTTP protocol and, therefore,
 MAY return other status codes than those listed in <a href="#status_codes">Table 2</a>, too.</p></td></tr></table></div></div>
         <div id="web_caching"><h2>8.6. Web caching</h2><p id="_a3e8d8df-1e6b-4a74-8ef6-521f1a4c42c2">Entity tags are a mechanism for web cache validation and for supporting conditional
@@ -1885,7 +1954,7 @@ of the most fundamental aspects of publishing geographic data and it is importan
 to be clear about the coordinate reference system that coordinates are in.</p>
 <p id="_4b5ab38c-1099-4fe9-9568-8bae44902e65">For the reasons discussed in the Best Practices, Web Feature Service 3.0 uses
 WGS84 longitude and latitude as the default coordinate reference system.</p>
-<table id="_944e1a96-79e4-4991-b366-b67e13d57f1c" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 8</td><td valign="top" class="recommend"><p><b>/req/core/crs84</b></p>
+<table id="_944e1a96-79e4-4991-b366-b67e13d57f1c" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 8</td><td valign="top" class="require"><p><b>/req/core/crs84</b></p>
 <p id="_07bcf0f5-f378-46b3-bc12-73bc02fdebf4">Unless the client explicitly requests a different coordinate reference system,
 all spatial geometries SHALL be in the coordinate reference system
 <a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84">http://www.opengis.net/def/crs/OGC/1.3/CRS84</a> (WGS84 longitude/latitude).</p></td></tr></table>
@@ -1907,15 +1976,15 @@ response are created.</p></td></tr></table>
 </div>
         <div id="_feature_collections_metadata"><h2>8.11. Feature collections metadata</h2><div id="_operation_4"><h3>8.11.1. Operation</h3>
 
-  <table id="_510c065d-dc5f-435f-ae1d-6f2a71c2aa68" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 9</td><td valign="top" class="recommend"><p><b>/req/core/fc-md-op</b></p>
+  <table id="_510c065d-dc5f-435f-ae1d-6f2a71c2aa68" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 9</td><td valign="top" class="require"><p><b>/req/core/fc-md-op</b></p>
 <p id="_3a8ef82b-853f-4d36-a793-a5d52f34581e">The server SHALL support the HTTP GET operation at the path <tt>/collections</tt>.</p></td></tr></table>
 </div>
-<div id="_response_4"><h3>8.11.2. Response</h3><table id="_4f1adaa6-2174-4a16-bdc7-103d4cbadf80" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 10</td><td valign="top" class="recommend"><p><b>/req/core/fc-md-success</b></p>
+<div id="_response_4"><h3>8.11.2. Response</h3><table id="_4f1adaa6-2174-4a16-bdc7-103d4cbadf80" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 10</td><td valign="top" class="require"><p><b>/req/core/fc-md-success</b></p>
 <p id="_b5fb0329-1b0a-4c17-8040-6d406b535ec3">A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <tt>200</tt>.</p>
 <p id="_e7d222e8-7d32-4c4e-8e32-459b80d35bc9">The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/content.yaml">content.yaml</a>.</p></td></tr></table>
 <p id="_213a9b82-69f8-409d-aa49-e4ae00d238cd" class="Sourcecode">type: object<br />required:<br />&#xA0; - links<br />&#xA0; - collections<br />properties:<br />&#xA0; links:<br />&#xA0;&#xA0;&#xA0; type: array<br />&#xA0;&#xA0;&#xA0; items:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/link.yaml<br />&#xA0; collections:<br />&#xA0;&#xA0;&#xA0; type: array<br />&#xA0;&#xA0;&#xA0; items:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/collectionInfo.yaml<p class="FigureTitle" align="center"><a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/content.yaml">Schema for the metadata about feature collections</a></p></p>
-<table id="_3eb7cd70-e4fd-4b90-800b-00e1b8c3a45d" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 11</td><td valign="top" class="recommend"><p><b>/req/core/fc-md-links</b></p>
+<table id="_3eb7cd70-e4fd-4b90-800b-00e1b8c3a45d" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 11</td><td valign="top" class="require"><p><b>/req/core/fc-md-links</b></p>
 <p id="_1c6bfe4f-fbfd-4543-aec8-a899480cbe67">A <tt>200</tt>-response SHALL include the following links in the <tt>links</tt> property
 of the response:</p>
 <ul id="_5052c565-ee28-4ff3-b8d5-f675245e07ee">
@@ -1949,10 +2018,10 @@ Lack of DescribeFeatureType request</p>
 Add a recommendation about a link to the dataset metadata (for example, in DCAT).
 Which link relation type?</p>
 </div>
-<table id="_74cc588d-d594-4a24-be07-1ded60af677d" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 12</td><td valign="top" class="recommend"><p><b>/req/core/fc-md-items</b></p>
+<table id="_74cc588d-d594-4a24-be07-1ded60af677d" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 12</td><td valign="top" class="require"><p><b>/req/core/fc-md-items</b></p>
 <p id="_0a44938c-d7ba-49ef-abbd-61bddcd306c2">For each feature collection in this distribution of the dataset, an item SHALL
 be provided in the property <tt>collections</tt>.</p></td></tr></table>
-<table id="_958c66d2-eaa8-4217-8841-264f34aa4189" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 13</td><td valign="top" class="recommend"><p><b>/req/core/fc-md-items-links</b></p>
+<table id="_958c66d2-eaa8-4217-8841-264f34aa4189" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 13</td><td valign="top" class="require"><p><b>/req/core/fc-md-items-links</b></p>
 <p id="_1e97ee58-5ce7-4e73-879f-b0fdb317ceae">For each feature collection in this distribution of the dataset,
 the <tt>links</tt> property of the collection SHALL include
 an item for each supported encoding
@@ -1964,7 +2033,7 @@ Can/should we make use of the new
 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#linkObject">Link Object</a>
 in OpenAPI 3.0?</p>
 </div>
-<table id="_39018e84-550d-4ec6-b172-141df93c656c" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 14</td><td valign="top" class="recommend"><p><b>/req/core/fc-md-extent</b></p>
+<table id="_39018e84-550d-4ec6-b172-141df93c656c" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 14</td><td valign="top" class="require"><p><b>/req/core/fc-md-extent</b></p>
 <p id="_80300024-979e-40c4-b105-6d2f553bd6ff">For each feature collection, the <tt>extent</tt> property, if provided, SHALL be a bounding box that includes all spatial and temporal geometries in this collection.</p>
 <p id="_9bf80510-de64-4d76-a992-5efc0510990a">If a feature has multiple properties with spatial or temporal information, it is the decision of the server whether only a single spatial or temporal geometry property is used to determine the extent or all relevant geometries.</p></td></tr></table>
 <p id="_8d12f4a4-3661-4289-8ef2-0be6a3400b92" class="Sourcecode">type: object<br />required:<br />&#xA0; - name<br />&#xA0; - links<br />properties:<br />&#xA0; name:<br />&#xA0;&#xA0;&#xA0; description: identifier of the collection used, for example, in URIs<br />&#xA0;&#xA0;&#xA0; type: string<br />&#xA0; title:<br />&#xA0;&#xA0;&#xA0; description: human readable title of the collection<br />&#xA0;&#xA0;&#xA0; type: string<br />&#xA0; description:<br />&#xA0;&#xA0;&#xA0; description: a description of the features in the collection<br />&#xA0;&#xA0;&#xA0; type: string<br />&#xA0; links:<br />&#xA0;&#xA0;&#xA0; type: array<br />&#xA0;&#xA0;&#xA0; items:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/link.yaml<br />&#xA0; extent:<br />&#xA0;&#xA0;&#xA0; $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/extent.yaml<br />&#xA0; crs:<br />&#xA0;&#xA0;&#xA0; description: the list of coordinate reference systems supported by the service; the first item is the default coordinate reference system<br />&#xA0;&#xA0;&#xA0; type: array<br />&#xA0;&#xA0;&#xA0; items:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; type: string<br />&#xA0;&#xA0;&#xA0; default:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - http://www.opengis.net/def/crs/OGC/1.3/CRS84<p class="FigureTitle" align="center"><a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/collectionInfo.yaml">Schema for the metadata about a feature collection</a></p></p>
@@ -1984,14 +2053,14 @@ geometries only in the default system (WGS84 longitude/latitude).</p>
 </div></div>
         <div id="_feature_collection_metadata"><h2>8.12. Feature collection metadata</h2><div id="_operation_5"><h3>8.12.1. Operation</h3>
 
-  <table id="_b8e263de-da33-4526-9fca-6694cc3e5543" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 15</td><td valign="top" class="recommend"><p><b>/req/core/sfc-md-op</b></p>
+  <table id="_b8e263de-da33-4526-9fca-6694cc3e5543" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 15</td><td valign="top" class="require"><p><b>/req/core/sfc-md-op</b></p>
 <p id="_d45bf8c2-a740-4f4a-b347-147e2126c9f4">The server SHALL support the HTTP GET operation at the path <tt>/collections/{name}</tt>.</p>
 <p id="_d3999823-e106-4d89-988c-a8dd69519bc1">The parameter <tt>name</tt> is each property of the same name in the feature
 collections metadata (JSONPath: <tt>$.collections[*].name</tt>).</p></td></tr></table>
 </div>
 <div id="_response_5"><h3>8.12.2. Response</h3>
 
-  <table id="_a44b1513-8d71-4447-a3eb-44c96676a6c7" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 16</td><td valign="top" class="recommend"><p><b>/req/core/sfc-md-success</b></p>
+  <table id="_a44b1513-8d71-4447-a3eb-44c96676a6c7" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 16</td><td valign="top" class="require"><p><b>/req/core/sfc-md-success</b></p>
 <p id="_4642c387-ea06-4261-a8b4-9473348bd86b">A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <tt>200</tt>.</p>
 <p id="_33166d33-e779-44b8-bfc3-418661027e2b">The content of that response SHALL be the same as the content for this feature
@@ -2002,21 +2071,21 @@ collection in the <tt>/collections</tt> response.</p></td></tr></table>
 response will be <tt>404</tt> (see <a href="#status_codes">Table 2</a>).</p></div></div>
         <div id="_feature_collections"><h2>8.13. Feature collections</h2><div id="_operation_6"><h3>8.13.1. Operation</h3>
 
-  <table id="_5bfeb709-d0a1-45c3-81ab-6608a8aed308" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 17</td><td valign="top" class="recommend"><p><b>/req/core/fc-op
+  <table id="_5bfeb709-d0a1-45c3-81ab-6608a8aed308" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 17</td><td valign="top" class="require"><p><b>/req/core/fc-op
 </b></p>
 <p id="_40d57725-9584-4442-8d3a-069e971638b6">For every feature collection identified in the metadata about the feature collection (path <tt>/</tt>),
 the server SHALL support the HTTP GET operation at the path <tt>/collections/{name}/items</tt>.</p>
 <p id="_fa90ba83-1edf-4360-bd94-20b6fd9d76fd">The parameter <tt>name</tt> is each property of the same name in the feature
 collections metadata (JSONPath: <tt>$.collections[*].name</tt>).</p></td></tr></table>
 </div>
-<div id="_parameter_limit"><h3>8.13.2. Parameter limit</h3><table id="_41c789a5-c0a8-4514-8e50-cceace8fc4bd" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 18</td><td valign="top" class="recommend"><p><b>/req/core/fc-limit-definition</b></p>
+<div id="_parameter_limit"><h3>8.13.2. Parameter limit</h3><table id="_41c789a5-c0a8-4514-8e50-cceace8fc4bd" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 18</td><td valign="top" class="require"><p><b>/req/core/fc-limit-definition</b></p>
 <p id="_47ca166d-941f-406b-bd33-d02c67f4cd37">Each feature collection operation SHALL support a parameter <tt>limit</tt>
 with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
 <p id="_76947c68-b1b9-40b9-8b16-c827e095fbb4" class="Sourcecode">name: limit<br />in: query<br />required: false<br />schema:<br />&#xA0; type: integer<br />&#xA0; minimum: 1<br />&#xA0; maximum: 10000<br />&#xA0; default: 10<br />style: form<br />explode: false</p></td></tr></table>
-<table id="_f3763df7-2a29-4994-b761-74d6b6d4ccf4" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 2</td><td valign="top" class="recommend"><p><b>/per/core/fc-limit-default-maximum</b></p>
+<table id="_f3763df7-2a29-4994-b761-74d6b6d4ccf4" class="permission" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 2</td><td valign="top" class="permission"><p><b>/per/core/fc-limit-default-maximum</b></p>
 <p id="_2bcb7a8a-84ca-4294-a8f7-92bde0668d12">The values for <tt>maximum</tt> and <tt>default</tt> in requirement <tt>/req/core/fc-limit-definition</tt>
 are only examples and MAY be changed.</p></td></tr></table>
-<table id="_51ba3bef-0f20-4fee-9fe4-133fda8e4b54" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 19</td><td valign="top" class="recommend"><p><b>/req/core/fc-limit-response-1</b></p>
+<table id="_51ba3bef-0f20-4fee-9fe4-133fda8e4b54" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 19</td><td valign="top" class="require"><p><b>/req/core/fc-limit-response-1</b></p>
 <p id="_f42d8c25-0e2d-43bd-a1b2-6845a460c06e">The response SHALL not contain more features than specified by the
 optional <tt>limit</tt> parameter. If the API definition specifies a maximum
 value for <tt>limit</tt> parameter, the response SHALL not contain more
@@ -2024,16 +2093,16 @@ features than this maximum value.</p>
 <p id="_22d16705-6502-420c-a101-400dadfe6c0f">Only items are counted that are on the first level of the collection.
 Any nested objects contained within the explicitly requested items
 SHALL not be counted.</p></td></tr></table>
-<table id="_03575fdb-231b-4e76-ad14-28dc20bfeaca" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 3</td><td valign="top" class="recommend"><p><b>/per/core/fc-limit-response-2</b></p>
+<table id="_03575fdb-231b-4e76-ad14-28dc20bfeaca" class="permission" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 3</td><td valign="top" class="permission"><p><b>/per/core/fc-limit-response-2</b></p>
 <p id="_3b06d493-6191-44fe-98d2-e95a22744b52">The server MAY return less features than requested (but not more).</p></td></tr></table>
 <p id="_baf155e8-fe4e-467a-bf16-5985d2abc9d2">A template for the definition of the parameter in YAML according to
 OpenAPI 3.0 is available at
 <a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/limit.yaml">limit.yaml</a>.</p></div>
-<div id="_parameter_bbox"><h3>8.13.3. Parameter bbox</h3><table id="_fdd95688-311f-49b3-8d9c-172accbbb690" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 20</td><td valign="top" class="recommend"><p><b>/req/core/fc-bbox-definition</b></p>
+<div id="_parameter_bbox"><h3>8.13.3. Parameter bbox</h3><table id="_fdd95688-311f-49b3-8d9c-172accbbb690" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 20</td><td valign="top" class="require"><p><b>/req/core/fc-bbox-definition</b></p>
 <p id="_8e1eb847-2eac-46dc-b68f-cc83e3bf3056">Each feature collection operation SHALL support a parameter <tt>bbox</tt>
 with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
 <p id="_4ec65d9f-96e3-45de-be78-fc7318e7d42a" class="Sourcecode">name: bbox<br />in: query<br />required: false<br />schema:<br />&#xA0; type: array<br />&#xA0; minItems: 4<br />&#xA0; maxItems: 6<br />&#xA0; items:<br />&#xA0;&#xA0;&#xA0; type: number<br />style: form<br />explode: false</p></td></tr></table>
-<table id="_1c7c4cac-099d-42fb-bd41-68c02274910e" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 21</td><td valign="top" class="recommend"><p><b>/req/core/fc-bbox-response</b></p>
+<table id="_1c7c4cac-099d-42fb-bd41-68c02274910e" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 21</td><td valign="top" class="require"><p><b>/req/core/fc-bbox-response</b></p>
 <p id="_ffb7cfc2-ee7c-47e6-b5a2-f11b0f0b5e9f">Only features that have a spatial geometry that intersects the bounding box SHALL be
 part of the result set, if the <tt>bbox</tt> parameter is provided.</p>
 <p id="_91feb4c7-4543-49c9-ab3d-344507ecf65f">The bounding box is provided as four or six numbers, depending on whether the
@@ -2080,11 +2149,11 @@ would be represented in JSON as <tt>[ 160.6, -55.95, -170, -25.89 ]</tt> and in 
 <p id="_dcba787d-f071-4f92-b757-0c3c84f036a4">A template for the definition of the parameter in YAML according to
 OpenAPI 3.0 is available at
 <a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/bbox.yaml">bbox.yaml</a>.</p></div>
-<div id="_parameter_time"><h3>8.13.4. Parameter time</h3><table id="_8a2d5017-a949-4adb-aaf9-fd92e4bfc8d5" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 22</td><td valign="top" class="recommend"><p><b>/req/core/fc-time-definition</b></p>
+<div id="_parameter_time"><h3>8.13.4. Parameter time</h3><table id="_8a2d5017-a949-4adb-aaf9-fd92e4bfc8d5" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 22</td><td valign="top" class="require"><p><b>/req/core/fc-time-definition</b></p>
 <p id="_5a72daac-78ad-4b6f-9fc5-c75fae0d3f10">Each feature collection operation SHALL support a parameter <tt>time</tt>
 with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
 <p id="_5a4eee1b-64f3-4793-ae1e-0a12bce781a8" class="Sourcecode">name: time<br />in: query<br />required: false<br />schema:<br />&#xA0; type: string<br />style: form<br />explode: false</p></td></tr></table>
-<table id="_c4eee315-35a1-41b6-a7e0-f8c5a2916206" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 23</td><td valign="top" class="recommend"><p><b>/req/core/fc-time-response</b></p>
+<table id="_c4eee315-35a1-41b6-a7e0-f8c5a2916206" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 23</td><td valign="top" class="require"><p><b>/req/core/fc-time-response</b></p>
 <p id="_c9ae3321-b1ac-4b71-a346-7adcdceaf515">Only features that have a temporal geometry that intersects the timestamp or
 time period SHALL be part of the result set, if the <tt>time</tt> parameter is provided.</p>
 <p id="_b7833010-47cf-4655-b356-022c597ade26">The temporal information is either a date-time or a period string that
@@ -2145,7 +2214,7 @@ a name that starts with &#x201C;A&#x201D;.</p></td></tr></table>
   <p id="_6856a0bc-3d15-4cac-96f2-155eb1d4fa13">CAUTION&#x2014;<a href="https://github.com/opengeospatial/WFS_FES/issues/20">ISSUE 20</a><br />
 Query parameter name collisions.</p>
 </div></div>
-<div id="_response_6"><h3>8.13.6. Response</h3><table id="_1df3b8a6-7073-48da-a859-3893f273f81c" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 24</td><td valign="top" class="recommend"><p><b>/req/core/fc-response</b></p>
+<div id="_response_6"><h3>8.13.6. Response</h3><table id="_1df3b8a6-7073-48da-a859-3893f273f81c" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 24</td><td valign="top" class="require"><p><b>/req/core/fc-response</b></p>
 <p id="_71d0948f-4ebb-4dde-bb8d-817ad29935f2">A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <tt>200</tt>.</p>
 <p id="_8c5fdb10-eeac-4aa8-ab74-91ee79fc3538">The response SHALL only include features selected by the request.</p></td></tr></table>
@@ -2179,7 +2248,7 @@ fragment in requirement <tt>/req/core/fc-limit-definition</tt>):</p>
     <p id="_8c478eb3-fb11-4ab8-94f2-51785d179fb1">If you follow the next link from the previous response, you might get up to 10000 additional features and if there are more a <tt>next</tt> link.</p>
   </li>
 </ul>
-<table id="_ca6dc2a7-a77a-48f2-b462-806b2a3a94b6" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 25</td><td valign="top" class="recommend"><p><b>/req/core/fc-links</b></p>
+<table id="_ca6dc2a7-a77a-48f2-b462-806b2a3a94b6" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 25</td><td valign="top" class="require"><p><b>/req/core/fc-links</b></p>
 <p id="_41f07f4b-843e-4a41-92a0-44875c28366b">A <tt>200</tt>-response SHALL include the following links:</p>
 <ul id="_c2bef14b-c0c2-4aab-b96c-8d1052edb3c6">
   <li>
@@ -2209,23 +2278,23 @@ Clients should be prepared to receive a 404 response.</p>
 <p id="_0b27fea8-c06a-434d-8bb5-d2ee283c276c">Another implementation approach is to use an implementation-specific parameter
 like the <tt>startIndex</tt> parameter that was used in previous versions of WFS (and
 which may be added again in an extension to this specification).</p>
-<table id="_b8b0c0a0-1c4e-42e0-b0a5-025adf8cf4fe" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 4</td><td valign="top" class="recommend"><p><b>/per/core/fc-prev</b></p>
+<table id="_b8b0c0a0-1c4e-42e0-b0a5-025adf8cf4fe" class="permission" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 4</td><td valign="top" class="permission"><p><b>/per/core/fc-prev</b></p>
 <p id="_363dc4ec-29a7-414e-9a62-93b0ebdff4b2">A response to a <tt>next</tt> link MAY include a <tt>prev</tt> link to the resource that
 included the <tt>next</tt> link.</p></td></tr></table>
 <p id="_a513113b-47b9-491c-87a7-bbc7463580cb">Providing <tt>prev</tt> links supports navigating back and forth between pages,
 but depending on the implementation approach it may be too complex to implement.</p>
-<table id="_e5d92287-fa13-45fb-b661-16ecf223835c" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 26</td><td valign="top" class="recommend"><p><b>/req/core/fc-rel-type</b></p>
+<table id="_e5d92287-fa13-45fb-b661-16ecf223835c" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 26</td><td valign="top" class="require"><p><b>/req/core/fc-rel-type</b></p>
 <p id="_6026fe17-175f-482a-862a-d62b6449eede">All links SHALL include the <tt>rel</tt> and <tt>type</tt> link parameters.</p></td></tr></table>
-<table id="_68b5fa43-f7ee-4d85-928d-13892d22380a" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 27</td><td valign="top" class="recommend"><p><b>/req/core/fc-timeStamp</b></p>
+<table id="_68b5fa43-f7ee-4d85-928d-13892d22380a" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 27</td><td valign="top" class="require"><p><b>/req/core/fc-timeStamp</b></p>
 <p id="_b7d73fc8-696f-445a-80ec-c9d2dc5afc31">If a property <tt>timeStamp</tt> is included in the response, the value SHALL
 be set to the time stamp when the response was generated.</p></td></tr></table>
-<table id="_e81e555b-45d9-4460-a7ad-489077c58ac9" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 28</td><td valign="top" class="recommend"><p><b>/req/core/fc-numberMatched</b></p>
+<table id="_e81e555b-45d9-4460-a7ad-489077c58ac9" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 28</td><td valign="top" class="require"><p><b>/req/core/fc-numberMatched</b></p>
 <p id="_832db800-2e85-41cd-831c-b541b1b578ac">If a property <tt>numberMatched</tt> is included in the response, the value SHALL
 be identical to the number of features in the feature collections that match
 the selection parameters like <tt>bbox</tt>, <tt>time</tt> or additional filter parameters.</p>
 <p id="_2a25efba-cba9-4014-a106-c6ba9f3f6b13">A server MAY omit this information in a response, if the information about the
 number of matching features is not known or difficult to compute.</p></td></tr></table>
-<table id="_3d90e876-8051-4da1-99da-c2de58c19db6" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 29</td><td valign="top" class="recommend"><p><b>/req/core/fc-numberReturned</b></p>
+<table id="_3d90e876-8051-4da1-99da-c2de58c19db6" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 29</td><td valign="top" class="require"><p><b>/req/core/fc-numberReturned</b></p>
 <p id="_1ab471d3-b7e0-45db-8f3d-3b4a810e4852">If a property <tt>numberReturned</tt> is included in the response, the value SHALL
 be identical to the number of features in the response.</p>
 <p id="_20686e6e-b5f3-4597-8dbb-3f04b5475059">A server MAY omit this information in a response, if the information about the
@@ -2266,14 +2335,14 @@ a bounding box;</p>
     <p id="_948b86a7-6873-4892-9932-bb3b735aadbd">if parameter <tt>time</tt> is not a valid time stamp or time period.</p>
   </li>
 </ul></div></div>
-        <div id="_feature_2"><h2>8.14. Feature</h2><div id="_operation_7"><h3>8.14.1. Operation</h3><table id="_9fcad5f8-ac9c-4459-bdf5-817e9c9b0853" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 30</td><td valign="top" class="recommend"><p><b>/req/core/f-op</b></p>
+        <div id="_feature_2"><h2>8.14. Feature</h2><div id="_operation_7"><h3>8.14.1. Operation</h3><table id="_9fcad5f8-ac9c-4459-bdf5-817e9c9b0853" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 30</td><td valign="top" class="require"><p><b>/req/core/f-op</b></p>
 <p id="_fc460d14-c5df-41e6-b7a1-e5ff1e555afc">For every feature in a feature collection (path <tt>/collections/{name}/items</tt>),
 the service SHALL support the HTTP GET operation at the path
 <tt>/collections/{name}/items/{id}</tt>.</p>
 <p id="_dfe7f932-6355-49b5-9044-eda04b83f833">The parameter <tt>name</tt> is each property of the same name in the feature
 collections metadata (JSONPath: <tt>$.collections[*].name</tt>). <tt>id</tt> is a
 local identifier of the feature.</p></td></tr></table>
-<table id="_ae63171b-1709-4aac-98b6-e1ad6a551eff" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 5</td><td valign="top" class="recommend"><p><b>/per/core/f-id</b></p>
+<table id="_ae63171b-1709-4aac-98b6-e1ad6a551eff" class="permission" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Permission 5</td><td valign="top" class="permission"><p><b>/per/core/f-id</b></p>
 <p id="_f0c26734-d4f7-43aa-b99e-439b37008e38">The Core requirements class only requires that the feature URI is unique.
 Implementations MAY apply stricter rules and, for example, use unique <tt>id</tt>
 values per dataset or collection.</p></td></tr></table>
@@ -2282,10 +2351,10 @@ values per dataset or collection.</p></td></tr></table>
 There are two types of feature identifiers and we need to make sure we
 distinguish between them.</p>
 </div></div>
-<div id="_response_7"><h3>8.14.2. Response</h3><table id="_fe76ed8b-3565-4687-a7d6-5f6f7e1c2a15" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 31</td><td valign="top" class="recommend"><p><b>/req/core/f-success</b></p>
+<div id="_response_7"><h3>8.14.2. Response</h3><table id="_fe76ed8b-3565-4687-a7d6-5f6f7e1c2a15" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 31</td><td valign="top" class="require"><p><b>/req/core/f-success</b></p>
 <p id="_e4f86491-df43-4298-8368-46ff8cb8e830">A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <tt>200</tt>.</p></td></tr></table>
-<table id="_7b9afbe7-ebeb-4423-b467-e09d782ef75f" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 32</td><td valign="top" class="recommend"><p><b>/req/core/f-links</b></p>
+<table id="_7b9afbe7-ebeb-4423-b467-e09d782ef75f" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 32</td><td valign="top" class="require"><p><b>/req/core/f-links</b></p>
 <p id="_6c86dfab-f2d1-49a3-9381-c372f0fe3004">A <tt>200</tt>-response SHALL include the following links in the response:</p>
 <ul id="_8549ed95-3f4f-49dc-83d0-81a5d08a35ae">
   <li>
@@ -2370,10 +2439,10 @@ access all data.</p>
       </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">Dependency</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
         <a href="#schema.org">Schema.org</a>
       </td></tr></tbody></table>
-<table id="_ba569a80-bfad-4818-8342-96bb79734845" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 33</td><td valign="top" class="recommend"><p><b>/req/html/definition</b></p>
+<table id="_ba569a80-bfad-4818-8342-96bb79734845" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 33</td><td valign="top" class="require"><p><b>/req/html/definition</b></p>
 <p id="_37cab864-15c1-4939-a971-184f4c7efe30">Every <tt>200</tt>-response of an operation of the server
 SHALL support the media type <tt>text/html</tt>.</p></td></tr></table>
-<table id="_6a3f74b9-7959-4607-a142-2c0dd52de93f" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 34</td><td valign="top" class="recommend"><p><b>/req/html/content</b></p>
+<table id="_6a3f74b9-7959-4607-a142-2c0dd52de93f" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 34</td><td valign="top" class="require"><p><b>/req/html/content</b></p>
 <p id="_1dc3a657-3886-4e8c-ae31-056c70da5207">Every <tt>200</tt>-response of the server with the media type &#x201C;text/html&#x201D; SHALL be a
 <a href="https://www.w3.org/TR/html5/">HTML 5 document</a> that includes the following
 information in the HTML body:</p>
@@ -2403,7 +2472,7 @@ if the feature data can be represented in GeoJSON for the intended use.</p>
       </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">Dependency</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
         <a href="#GeoJSON">GeoJSON</a>
       </td></tr></tbody></table>
-<table id="_c7c00d46-e7e7-435d-a37d-61927a3d6e11" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 35</td><td valign="top" class="recommend"><p><b>/req/geojson/definition</b></p>
+<table id="_c7c00d46-e7e7-435d-a37d-61927a3d6e11" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 35</td><td valign="top" class="require"><p><b>/req/geojson/definition</b></p>
 <p id="_3b5ccc79-90a1-4eee-87e4-529393595062"><tt>200</tt>-responses of the server SHALL support the following media types:</p>
 <ul id="_ad60b53b-aea4-480a-8051-7e7d002a6601">
   <li>
@@ -2413,7 +2482,7 @@ if the feature data can be represented in GeoJSON for the intended use.</p>
     <p id="_70c4e1b5-1aa9-45b9-b3d0-e28e6b17b336"><tt>application/json</tt> for all other resources.</p>
   </li>
 </ul></td></tr></table>
-<table id="_dd64807d-18a6-4592-b822-fe16df050adf" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 36</td><td valign="top" class="recommend"><p><b>/req/geojson/content</b></p>
+<table id="_dd64807d-18a6-4592-b822-fe16df050adf" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 36</td><td valign="top" class="require"><p><b>/req/geojson/content</b></p>
 <p id="_3e64ecc5-1d52-4e6b-b2f3-8bf6ef31ce64">Every <tt>200</tt>-response with the media type <tt>application/geo+json</tt> SHALL be</p>
 <ul id="_ce090d50-9d06-42f5-b39f-27ef895e33a6">
   <li>
@@ -2455,7 +2524,7 @@ a tabular data structure.</p>
       </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">Dependency</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
         <a href="#GMLSF">Geography Markup Language (GML), Simple Features Profile, Level 0</a>
       </td></tr></tbody></table>
-<table id="_3a997c55-7932-4688-8b54-ff7bfcd89678" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 37</td><td valign="top" class="recommend"><p><b>/req/gmlsf0/definition</b></p>
+<table id="_3a997c55-7932-4688-8b54-ff7bfcd89678" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 37</td><td valign="top" class="require"><p><b>/req/gmlsf0/definition</b></p>
 <p id="_b556dfec-3083-4053-9ff5-9d5813c050f9"><tt>200</tt>-responses of the server SHALL support the following media types:</p>
 <ul id="_0f5672c2-eb7a-4b2a-a278-36e3c3fc82e5">
   <li>
@@ -2465,7 +2534,7 @@ a tabular data structure.</p>
     <p id="_bea4ebdc-18a8-4bbf-88c2-6a9fec35dd94"><tt>application/xml</tt> for all other resources.</p>
   </li>
 </ul></td></tr></table>
-<table id="req_gmlsf0_content" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 38</td><td valign="top" class="recommend"><p><b>/req/gmlsf0/content</b></p>
+<table id="req_gmlsf0_content" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 38</td><td valign="top" class="require"><p><b>/req/gmlsf0/content</b></p>
 <p id="_605e9d85-9f80-4c55-a060-e61eb925d430"><a href="#gml_content">Table 6</a> specifies the XML document root element
 that the server SHALL return in a <tt>200</tt>-response for each resource.</p>
 <p id="_456f29f6-2136-4036-ac5f-5a62e40916de">Every feature in a feature collection or feature resource SHALL conform
@@ -2532,7 +2601,7 @@ atomic values (strings, numbers, etc.).</p>
       </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">Dependency</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
         <a href="#GMLSF">Geography Markup Language (GML), Simple Features Profile, Level 2</a>
       </td></tr></tbody></table>
-<table id="_17ddeb91-1eb1-4931-88af-dc32e1af8f35" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 39</td><td valign="top" class="recommend"><p><b>/req/gmlsf2/definition</b></p>
+<table id="_17ddeb91-1eb1-4931-88af-dc32e1af8f35" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 39</td><td valign="top" class="require"><p><b>/req/gmlsf2/definition</b></p>
 <p id="_8a4136ca-ab39-4d16-a7d8-760c7755cb1c"><tt>200</tt>-responses of the server SHALL support the following media types:</p>
 <ul id="_232217af-e243-47ac-8ce7-9b7373b2e8c8">
   <li>
@@ -2542,7 +2611,7 @@ atomic values (strings, numbers, etc.).</p>
     <p id="_db78bf3d-cbb9-4606-8afb-d73874f5fc61"><tt>application/xml</tt> for all other resources.</p>
   </li>
 </ul></td></tr></table>
-<table id="_bf4629be-b0f4-4e68-a265-404d0fbfcff2" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 40</td><td valign="top" class="recommend"><p><b>/req/gmlsf2/content</b></p>
+<table id="_bf4629be-b0f4-4e68-a265-404d0fbfcff2" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 40</td><td valign="top" class="require"><p><b>/req/gmlsf2/content</b></p>
 <p id="_d2f5c14e-fb56-42f6-81ef-84870bda9efd">The <a href="#req_gmlsf0_content">requirement <tt>/req/gmlsf0/content</tt></a> applies, too,
 with the following changes:</p>
 <ul id="_9b33aca7-0650-4862-b1db-fdeaa6fa7db2">
@@ -2567,7 +2636,7 @@ are replaced by <tt>application/gml+xml; version=3.2; profile=http://www.opengis
       </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">Dependency</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
         <a href="#OpenAPI">OpenAPI Specification 3.0.1</a>
       </td></tr></tbody></table>
-<table id="_2a41dc88-2421-4686-88c0-b9503b491734" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 41</td><td valign="top" class="recommend"><p><b>/req/oas30/oas-definition-1</b></p>
+<table id="_2a41dc88-2421-4686-88c0-b9503b491734" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 41</td><td valign="top" class="require"><p><b>/req/oas30/oas-definition-1</b></p>
 <p id="_43271b2b-9e9e-4dd3-a48b-977723a723e1">The service SHALL provide an OpenAPI definition in JSON and HTML at the path
 <tt>/api</tt> using the media type <tt>application/openapi+json;version=3.0</tt>.</p></td></tr></table>
 <div class="Admonition">
@@ -2575,7 +2644,7 @@ are replaced by <tt>application/gml+xml; version=3.2; profile=http://www.opengis
 The OpenAPI media type has not been registered yet with IANA and will likely
 change. We need to update the media type after registration.</p>
 </div>
-<table id="_1619c544-e636-4c06-9d86-88fb35f770db" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 42</td><td valign="top" class="recommend"><p><b>/req/oas30/oas-definition-2</b></p>
+<table id="require-e636-4c06-9d86-88fb35f770db" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 42</td><td valign="top" class="require"><p><b>/req/oas30/oas-definition-2</b></p>
 <p id="_b402b4bc-acf9-4ccf-8964-e32f9fdf2050">The JSON representation SHALL conform to the
 <a href="#OpenAPI">OpenAPI Specification, version 3.0</a>.</p></td></tr></table>
 <div class="Admonition">
@@ -2585,7 +2654,7 @@ values. However, if the path pattern would be flexible, maybe we should require
 specific operationIds for selected resources?</p>
 </div>
 <p id="_376f1ba5-dca4-431c-b3f3-db2f8a805812">Two example OpenAPI documents are included in <a href="#oas30_example">Annex B</a>.</p>
-<table id="_0feecdfb-a1bc-464a-8f0a-7120eab47619" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 43</td><td valign="top" class="recommend">/req/oas30/oas-impl<br />
+<table id="_0feecdfb-a1bc-464a-8f0a-7120eab47619" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 43</td><td valign="top" class="require">/req/oas30/oas-impl<br />
 
 The server SHALL implement all capabilities specified in the OpenAPI
 definition.</td></tr></table>
@@ -2594,7 +2663,7 @@ definition.</td></tr></table>
 Currently, no tool is known to validate that a server implements the
 API specified in its OpenAPI definition.</p>
 </div></div>
-        <div id="_complete_definition"><h2>10.2. Complete definition</h2><table id="_a47f54cd-ca9e-4008-bed8-65d67892aa82" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 44</td><td valign="top" class="recommend"><p><b>/req/oas30/completeness</b></p>
+        <div id="_complete_definition"><h2>10.2. Complete definition</h2><table id="_a47f54cd-ca9e-4008-bed8-65d67892aa82" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 44</td><td valign="top" class="require"><p><b>/req/oas30/completeness</b></p>
 <p id="_5d835100-f1ad-45e2-8cbc-e34c5aa514cc">The OpenAPI definition SHALL specify for each operation all
 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a>
 and
@@ -2610,7 +2679,7 @@ and <tt>400</tt>, <tt>404</tt> or <tt>500</tt> for error situations. See <a href
 <p id="_30d94dd5-0519-46d0-956d-389139ff39b0">Clients have to be prepared to receive responses not documented in the
 OpenAPI definition. For example, additional errors may occur in the transport
 layer outside of the server.</p></div>
-        <div id="exceptions"><h2>10.3. Exceptions</h2><table id="_b96d72d3-5149-4f30-987d-172c0c7b1ecd" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 45</td><td valign="top" class="recommend"><p><b>/req/oas30/exceptions-codes</b></p>
+        <div id="exceptions"><h2>10.3. Exceptions</h2><table id="_b96d72d3-5149-4f30-987d-172c0c7b1ecd" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 45</td><td valign="top" class="require"><p><b>/req/oas30/exceptions-codes</b></p>
 <p id="_0054db5c-c396-4e82-a6f2-719e58448f3f">For error situations that originate from the server, the API definition
 SHALL cover all applicable HTTP Status Codes.</p></td></tr></table>
 <div class="Admonition">
@@ -2621,7 +2690,7 @@ Listing of all applicable HTTP Status Codes</p>
 
   <p id="_c80f0d62-de46-4b8b-9cb4-4f12cbbbfb9f" class="Sourcecode">description: An error occurred.<br />content:<br />&#xA0; application/json:<br />&#xA0;&#xA0;&#xA0; schema:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/exception.yaml<br />&#xA0; text/html:<br />&#xA0;&#xA0;&#xA0; schema:<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; type: string</p>
 </td></tr></table></div>
-        <div id="security"><h2>10.4. Security</h2><table id="_59f37f8b-61f7-4846-8096-b2de4eb31ce3" class="recommend" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 46</td><td valign="top" class="recommend"><p><b>/req/oas30/security</b></p>
+        <div id="security"><h2>10.4. Security</h2><table id="_59f37f8b-61f7-4846-8096-b2de4eb31ce3" class="require" cellspacing="0" cellpadding="0" style="border-collapse:collapse"><tr><td valign="top" class="example_label" style="width:100.0pt;padding:0 0 0 1em;margin-left:0pt">Requirement 46</td><td valign="top" class="require"><p><b>/req/oas30/security</b></p>
 <p id="_5a5c570a-bb6c-4be6-bbec-117bd22a5a54">For cases, where the operations of the server are access-controlled,
 the security scheme(s) SHALL be documented in the OpenAPI definition.</p></td></tr></table>
 <p id="_8d541425-3d04-4acd-9efc-dc5748c406d1">The OpenAPI specification currently supports the following <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object">security schemes</a>:</p>

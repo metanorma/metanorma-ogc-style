@@ -486,11 +486,40 @@
     /*
         3.7 Notes
     */
+
+    .Admonition {
+      padding: 1em 1.2em 1.2em 1.2em;
+      margin: 1em 0 1em 0; 
+      background-color: #fcad88;
+      border-top: 10px solid #eb5a06;
+      color:#290404;
+      }
+
+    .Admonition.Important {
+      background-color: #f58cff;
+      color: #5d1364;
+      border-top: 10px solid #9503a8;
+    }
+
+    .Admonition.Warning {
+      background-color: #ff989d;
+      color: #270204;
+      border-top: 10px solid #e4010c;
+    }
+
+
+      .Admonition p {
+        margin: 0;
+    }
+
+
     .Note {
       background-color: #fff8bb;
       color: #7d760b;
       padding: 1.2em;
       margin: 1em 0 1em 0; }
+
+
       .Note p {
         margin: 0; }
     
@@ -499,6 +528,7 @@
     */
     .example {
       background-color: #e1eef1;
+      color:#424242;
       padding: 1.2em;
       margin: 2em 0 1em 0; }
     
@@ -507,6 +537,34 @@
       text-transform: uppercase;
       text-align: center;
       margin-top: 0; }
+
+    .example .Sourcecode {
+      background: none;
+    }
+    
+    .recommend, .recommend .example_label {
+      background-color: #f8ffbd;
+    }
+
+    .recommend .example_label {
+      font-weight: bold;
+    }
+
+    .permission, .permission .example_label {
+      background-color: #cdfdbe;
+    }
+
+    .permission .example_label {
+      font-weight: bold;
+    }
+    
+    .require, .require .example_label {
+      background-color: #d3e6ff;
+    }
+
+    .require .example_label {
+      font-weight: bold;
+    }
     
     /*
         3.9 Tables
